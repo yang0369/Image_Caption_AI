@@ -1,14 +1,15 @@
-# from PIL import Image
+from PIL import Image
 import requests
 from transformers import AutoModelForCausalLM
 from transformers import AutoProcessor
 
-url = "https://huggingface.co/datasets/sayakpaul/sample-datasets/resolve/main/pokemon.png"
-image = Image.open(requests.get(url, stream=True).raw)
+
+image = Image.open("3.jpg")
+image.show()
 
 checkpoint = "microsoft/git-base"
 processor = AutoProcessor.from_pretrained(checkpoint)
-model = AutoModelForCausalLM.from_pretrained(checkpoint)
+model = AutoModelForCausalLM.from_pretrained('jonastokoliu/image_caption_git-base_pokemon-blip-captions_finetune')
 
 
 device = "cpu"
